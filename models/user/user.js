@@ -34,6 +34,7 @@ const userSchema = new Schema({
   },
   password: { type: String, required: true },
   nativeLang: { type: String, enum: languages, required: true },
+  memoryStatus: { type: Number, default: 10 },
   dictionaries: { type: [dictionarySchema], default: [] },
   token: { type: String, default: '' },
 });
