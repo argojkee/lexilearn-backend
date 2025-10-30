@@ -11,7 +11,7 @@ const sendToRepeat = async (req, res, next) => {
   const currentWord = currentDictionary.words.find(w => String(w._id) === wordId)
   if(!currentWord) throw HttpError(400, "Add word to the dictionary firstly")
 
-    if (currentWord.repeatCount < user.memoryStatus) throw HttpError(400, 'Learn this word firstly')
+    if (currentWord.repeatCount < 10) throw HttpError(400, 'Learn this word firstly')
 
     const updatedUser = await User.findOneAndUpdate(
       {
